@@ -37,20 +37,20 @@ def insertion_sort(numbers: list[int], print_steps: bool = False) -> None:
 
     steps.append([None, None, None] + numbers.copy())
     # Using C-style code to implement the array loop```
-    for i in range(1, n):
+    for j in range(1, n):
         # using name 'key like in the book'
-        key = numbers[i]
+        key = numbers[j]
 
         # ? we have to move all elements from numbers[0] until numbers[i-1] that are greater than 'key' one position to the 'right' to make space for the key to be placed
         # * In practice, we save the value of the number to be inserted, and keep copying values to the 'right'until
         # * we find the correct spot to place the number
-        j = i - 1
+        i = j - 1
         steps.append([key, i, j] + numbers.copy())
-        while j >= 0 and key < numbers[j]:
-            numbers[j + 1] = numbers[j]
+        while i >= 0 and key < numbers[i]:
+            numbers[i + 1] = numbers[i]
             steps.append([key, i, j] + numbers.copy())
-            j -= 1
-        numbers[j + 1] = key
+            i -= 1
+        numbers[i + 1] = key
         steps.append([key, i, j] + numbers.copy())
 
     if print_steps:
