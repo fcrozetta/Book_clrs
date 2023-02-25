@@ -15,7 +15,7 @@ def steps_table(all_steps: list):
     table = Table(show_footer=False)
     # table_centered = Align.center(table)
 
-    console.clear()
+    # console.clear()
     table = Table(title="Insertion sort", show_lines=True)
     table.add_column("key")
     table.add_column("i")
@@ -41,7 +41,9 @@ def insertion_sort(numbers: list[int], print_steps: bool = False) -> None:
         # using name 'key like in the book'
         key = numbers[i]
 
-        # we have to move all elements from numbers[0] until numbers[i-1] that are greater than 'key' one position to the 'right' to make space for the key to be placed
+        # ? we have to move all elements from numbers[0] until numbers[i-1] that are greater than 'key' one position to the 'right' to make space for the key to be placed
+        # * In practice, we save the value of the number to be inserted, and keep copying values to the 'right'until
+        # * we find the correct spot to place the number
         j = i - 1
         steps.append([key, i, j] + numbers.copy())
         while j >= 0 and key < numbers[j]:
@@ -56,5 +58,10 @@ def insertion_sort(numbers: list[int], print_steps: bool = False) -> None:
 
 
 if __name__ == "__main__":
-    unsorted = [4, 3, 2, 1]
-    insertion_sort(unsorted, True)
+    lists = [
+        [4, 3, 2, 1],
+        [1, 2, 3, 4],
+        [9, 1, 8, 2, 7, 3, 6, 4, 5],
+    ]
+    for unsorted in lists:
+        insertion_sort(unsorted, True)
