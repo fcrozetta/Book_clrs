@@ -62,6 +62,7 @@ if __name__ == "__main__":
         [4, 3, 2, 1],
         [1, 2, 3, 4],
         [9, 1, 8, 2, 7, 3, 6, 4, 5],
+        [1, 2, 7, 4, 5, 6, 3, 8, 9],
     ]
     for unsorted in lists:
         insertion_sort(unsorted, True)
